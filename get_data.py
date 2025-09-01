@@ -20,3 +20,16 @@ print(financials)
 actions = ticker.actions
 print("\nStock Actions:")
 print(actions)
+
+def download(ticker, start_date, end_date):
+    data = yf.download(ticker, start=start_date, end=end_date)
+
+    # Save to CSV
+    data.to_csv(f"{ticker}_historical_data.csv")
+    print(data.head())
+
+# denoise and remove NULL values
+def preprocess():
+    pass
+
+download(ticker=ticker, start_date="2020-01-01", end_date="2025-08-31")
